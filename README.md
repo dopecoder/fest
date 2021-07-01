@@ -14,7 +14,7 @@ A simple snapshot testing utility for <a href="https://flutter.dev/" target="_bl
 <p align="center">
   <a href="https://pub.dev/packages/fest" rel="nofollow"><img src="https://camo.githubusercontent.com/cfbbcb4287020b9861dc2c8b4df6ad3910c90b51d7441d0c8aef8f8de260548c/68747470733a2f2f696d672e736869656c64732e696f2f7075622f762f6261646765733f636f6c6f723d626c756576696f6c6574" alt="Pub Version" data-canonical-src="https://img.shields.io/pub/v/badges?color=blueviolet" style="max-width:100%;"></a>
   <a href="https://gitter.im/fest-flutter/community"><img src="https://raw.githubusercontent.com/dopecoder/fest/master/images/gitter.svg"></a>
-  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
+  <a href="https://saythanks.io/to/nramarao@hawk.iit.edu">
       <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
   </a>
   <a href="https://www.paypal.me/NithinRao">

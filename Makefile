@@ -7,6 +7,7 @@ setup:
 clean:
 	flutter clean
 	flutter pub get
+	flutter pub run build_runner build
 	# cd example && flutter clean
 	# cd example && flutter pub get
 

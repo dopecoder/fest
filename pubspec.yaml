@@ -1,6 +1,8 @@
 name: fest
 description: A simple snapshot testing utility for flutter inspired by jest. Compare and test snapshots ranging from Screenshots, Render Tree and Layer Tree.
 version: 0.1.0
+homepage: https://flutter.dev/packages/fest
+repository: https://github.com/dopecoder/fest
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
@@ -19,4 +21,3 @@ dev_dependencies:
   test: ^1.16.8
   mockito: ^5.0.10
   build_runner: ^2.0.1
-
