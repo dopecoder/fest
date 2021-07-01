@@ -1,4 +1,6 @@
+## 0.1.1
 
+- Fixed command line runner name
 ## 0.1.0
 
 - Added LICENSE
