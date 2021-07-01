@@ -1,9 +1,13 @@
+## 0.1.3+1
+
+- fixed changelog
+
 ## 0.1.3
 
 - Updated Readme
 - Fixed bugs
 
-- ## 0.1.2
+## 0.1.2
 
 - Fixed screenshot error
 - Fixed Import issues
