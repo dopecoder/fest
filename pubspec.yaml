@@ -9,10 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  integration_test:
-    sdk: flutter
-  flutter_test:
-    sdk: flutter
   flutter_driver:
     sdk: flutter
   args: ^2.1.0  
