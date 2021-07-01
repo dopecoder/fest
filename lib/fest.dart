@@ -47,14 +47,7 @@ class Fest {
         await Snapshot.getSnapshotFromFile(id, SnapshotType.render, options);
     final newSnapshot = await Snapshot.getSnapshotFromDriver(
         id, SnapshotType.render, driver, removeExps);
-    List<int>? sh;
-    try {
-      sh = await driver.screenshot();
-    } catch (e) {
-      print('Error capturing screenshot - $e');
-    }
 
-    final snap = Snapshot(id, image: sh);
     if (newSnapshot == null) {
       throw Exception(
           'SnapshotTest: (toMatchRenderTreeSnapshot) New Snapshot is null');
@@ -62,12 +55,12 @@ class Fest {
 
     if (currentSnapshot == null || options.forceCaptureMode) {
       await newSnapshot.save(options);
-      await snap.saveImage(options, sh);
+      await captureScreenshot(id);
       return;
     }
 
     try {
-      await snap.saveImage(options, sh, asNew: true);
+      await captureScreenshot(id, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
@@ -87,27 +80,19 @@ class Fest {
     );
     final newSnapshot = await Snapshot.getSnapshotFromDriver(
         id, SnapshotType.layer, driver, removeExps);
-    List<int>? sh;
-    try {
-      sh = await driver.screenshot();
-    } catch (e) {
-      print('Error capturing screenshot - $e');
-    }
-
     if (newSnapshot == null) {
       throw Exception(
           'SnapshotTest: (toMatchLayerTreeSnapshot) New Snapshot is null');
     }
 
-    final snap = Snapshot(id, image: sh);
     if (currentSnapshot == null || options.forceCaptureMode) {
       await newSnapshot.save(options);
-      await snap.saveImage(options, sh);
+      await captureScreenshot(id);
       return;
     }
 
     try {
-      await snap.saveImage(options, sh, asNew: true);
+      await captureScreenshot(id, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
@@ -115,6 +100,19 @@ class Fest {
       rethrow;
     } catch (_) {
       rethrow;
+    }
+  }
+
+  Future<void> captureScreenshot(String id, {bool? asNew}) async {
+    List<int>? sh;
+    try {
+      sh = await driver.screenshot();
+    } catch (e) {
+      print('Error capturing screenshot - $e');
+    }
+    if (sh != null) {
+      final snap = Snapshot(id, image: sh);
+      await snap.saveImage(options, sh, asNew: asNew);
     }
   }
 

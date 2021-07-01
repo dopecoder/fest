@@ -119,11 +119,8 @@ class Snapshot {
     return false;
   }
 
-  Future<bool> saveImage(SnapshotTestOptions opts, List<int>? img,
+  Future<bool> saveImage(SnapshotTestOptions opts, List<int> img,
       {bool? asNew}) async {
-    if (img == null) {
-      return false;
-    }
     var fileName = getImgFileName(id);
     fileName =
         asNew != null && asNew == true ? getNewImgFileName(id) : fileName;
