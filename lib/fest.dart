@@ -60,10 +60,10 @@ class Fest {
     }
 
     try {
-      await captureScreenshot(id, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
+      await captureScreenshot(id, asNew: true);
       await saveFailure(currentSnapshot, newSnapshot);
       rethrow;
     } catch (_) {
@@ -92,10 +92,10 @@ class Fest {
     }
 
     try {
-      await captureScreenshot(id, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
+      await captureScreenshot(id, asNew: true);
       await saveFailure(currentSnapshot, newSnapshot);
       rethrow;
     } catch (_) {

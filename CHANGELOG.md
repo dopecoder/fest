@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Fixed screenshot error
+- Fixed Import issues
+- Fixed file naming 
 ## 0.1.1
 
 - Fixed command line runner name
