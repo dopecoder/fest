@@ -47,9 +47,14 @@ class Fest {
         await Snapshot.getSnapshotFromFile(id, SnapshotType.render, options);
     final newSnapshot = await Snapshot.getSnapshotFromDriver(
         id, SnapshotType.render, driver, removeExps);
-    final sh = await driver.screenshot();
-    final snap = Snapshot(id, image: sh);
+    List<int>? sh;
+    try {
+      sh = await driver.screenshot();
+    } catch (e) {
+      print('Error capturing screenshot - $e');
+    }
 
+    final snap = Snapshot(id, image: sh);
     if (newSnapshot == null) {
       throw Exception(
           'SnapshotTest: (toMatchRenderTreeSnapshot) New Snapshot is null');
@@ -61,8 +66,8 @@ class Fest {
       return;
     }
 
-    await snap.saveImage(options, sh, asNew: true);
     try {
+      await snap.saveImage(options, sh, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
@@ -82,18 +87,27 @@ class Fest {
     );
     final newSnapshot = await Snapshot.getSnapshotFromDriver(
         id, SnapshotType.layer, driver, removeExps);
+    List<int>? sh;
+    try {
+      sh = await driver.screenshot();
+    } catch (e) {
+      print('Error capturing screenshot - $e');
+    }
 
     if (newSnapshot == null) {
       throw Exception(
           'SnapshotTest: (toMatchLayerTreeSnapshot) New Snapshot is null');
     }
 
+    final snap = Snapshot(id, image: sh);
     if (currentSnapshot == null || options.forceCaptureMode) {
       await newSnapshot.save(options);
+      await snap.saveImage(options, sh);
       return;
     }
 
     try {
+      await snap.saveImage(options, sh, asNew: true);
       currentSnapshot.matchesSnapshot(newSnapshot);
       return;
     } on TestFailure catch (_) {
