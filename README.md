@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.github.com/dopecoder/fest"><img src="https://raw.githubusercontent.com/dopecoder/fest/master/images/fest.png" alt="Markdownify" width="200"></a>
+  <a href="http://www.github.com/dopecoder/fest"><img src="https://raw.githubusercontent.com/dopecoder/fest/master/images/fest.png" alt="Markdownify"></a>
   <br>
   Fest
   <br>  
